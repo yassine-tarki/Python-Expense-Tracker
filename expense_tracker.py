@@ -12,13 +12,17 @@ def add_expense():
 
 
 def show_expenses():
-    # Student B's task
-    pass
+    if not expenses:
+        print("No expenses recorded.")
+        return
+    for number, expense in enumerate(expenses, start=1):
+        print(f"{number}. {expense['description']} - "
+              f"{expense['amount']:.2f}")
 
 
 def show_total():
-    # Student B's task
-    pass
+    total = sum(item["amount"] for item in expenses)
+    print(f"Total: {total:.2f}")
 
 
 def main():
