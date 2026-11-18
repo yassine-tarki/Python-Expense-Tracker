@@ -19,7 +19,13 @@ def show_expenses():
         print(f"{number}. {expense['description']} - "
               f"{expense['amount']:.2f}")
 
-
+def show_average():
+    if not expenses:
+        print("No expenses recorded.")
+        return
+    total = sum(item["amount"] for item in expenses)
+    average = total / len(expenses)
+    print(f"Average expense: {average:.2f}")
 def show_total():
     total = sum(item["amount"] for item in expenses)
     print(f"Total: {total:.2f}")
@@ -42,6 +48,8 @@ def main():
         elif choice == "4":
             print("Goodbye!")
             break
+        elif choice == "5":
+            show_average()
         else:
             print("Invalid choice.")
 
